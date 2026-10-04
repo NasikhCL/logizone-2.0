@@ -41,14 +41,21 @@
 }
 
 .reveal-section {
-  opacity: 0;
-  transform: translateY(34px);
+  opacity: 1;
+  transform: none;
   transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal-section.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (min-width: 768px) {
+  .reveal-section {
+    opacity: 0;
+    transform: translateY(34px);
+  }
 }
 
 .animate-fade-in {
