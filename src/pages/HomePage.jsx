@@ -40,6 +40,11 @@ function RevealSection({ children, className = '', delay = 0, as: Component = 'd
     const node = ref.current;
     if (!node) return undefined;
 
+    if (!('IntersectionObserver' in window)) {
+      node.classList.add('is-visible');
+      return undefined;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -226,7 +231,7 @@ export default function HomePage() {
             <p className="max-w-xl text-slate-200">Tailored logistics, compliance, and cargo support for businesses moving goods across the world.</p>
           </div>
 
-          <div className="grid gap-6 lg:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
           {servicesData.map((service) => {
             const IconComponent = serviceIcons[service.iconName] || serviceIcons.Globe2;
             return (

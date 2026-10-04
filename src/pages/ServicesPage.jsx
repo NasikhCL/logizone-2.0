@@ -30,7 +30,7 @@ export default function ServicesPage() {
         <h1 className="mt-4 text-4xl font-black text-slate-900 sm:text-5xl">End-to-end solutions for every cargo challenge.</h1>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-3">
+      <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
         {servicesData.map((service) => {
           const Icon = serviceIcons[service.iconName] || Globe2;
           return (
